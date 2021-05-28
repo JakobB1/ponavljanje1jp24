@@ -88,3 +88,10 @@ values  (1,1),
         (4,2),
         (5,3),
         (6,3);
+        
+update proizvod set naziv = 'Razer slusalice' where sifra=1;
+update proizvod set naziv = 'Razer stolica' where sifra=2;
+update proizvod set naziv = 'Logitech podloga' where sifra=3;
+update proizvod set naziv = 'Logitech zvucnici' where sifra=4;
+update proizvod set naziv = 'Corsair RAM 2x8 ddr4' where sifra=5;
+update proizvod set naziv = 'Corsair podloga' where sifra=6;
