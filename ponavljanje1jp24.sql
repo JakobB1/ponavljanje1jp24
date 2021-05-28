@@ -6,7 +6,6 @@ create table pcshop(
   sifra int not null primary key auto_increment,
   naziv varchar(30) not null,
   oib varchar(40) not null,
-  djelatnik int,
   vlasnik int
 );
 
@@ -44,11 +43,8 @@ create table korisnik(
   prezime varchar(30) not null
 );
 
-alter table pcshop add foreign key(djelatnik) references djelatnik(sifra);
+alter table djelatnik add foreign key(pcshop) references pcshop(sifra);
 alter table racun add foreign key(korisnik) references korisnik(sifra);
 alter table racun add foreign key(djelatnik) references djelatnik(sifra);
 alter table stavka add foreign key(proizvod) references proizvod(sifra);
 alter table stavka add foreign key(racun) references racun(sifra);
-
-
-
