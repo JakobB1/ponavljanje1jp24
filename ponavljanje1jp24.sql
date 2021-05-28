@@ -21,7 +21,8 @@ create table racun(
   sifra int not null primary key auto_increment,
   datumpocetka datetime not null,
   brojracuna varchar(100) not null,
-  korisnik int
+  korisnik int,
+  djelatnik int
 );
 
 create table proizvod(
@@ -34,7 +35,7 @@ create table proizvod(
 create table stavka(
   sifra int not null primary key auto_increment,
   proizvod int not null,
-  stavka int not null
+  racun int not null
 );
 
 create table korisnik(
@@ -42,3 +43,12 @@ create table korisnik(
   ime varchar(30) not null,
   prezime varchar(30) not null
 );
+
+alter table pcshop add foreign key(djelatnik) references djelatnik(sifra);
+alter table racun add foreign key(korisnik) references korisnik(sifra);
+alter table racun add foreign key(djelatnik) references djelatnik(sifra);
+alter table stavka add foreign key(proizvod) references proizvod(sifra);
+alter table stavka add foreign key(racun) references racun(sifra);
+
+
+
