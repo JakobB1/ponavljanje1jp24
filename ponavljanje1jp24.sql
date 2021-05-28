@@ -5,7 +5,7 @@ use ponavljanje1jp24;
 create table pcshop(
   sifra int not null primary key auto_increment,
   naziv varchar(30) not null,
-  oib varchar(40) not null,
+  oib char(11),
   vlasnik int
 );
 
@@ -13,15 +13,15 @@ create table djelatnik(
   sifra int not null primary key auto_increment,
   ime varchar(50) not null,
   prezime varchar(50) not null,
-  pcshop int
+  pcshop int not null
 );
 
 create table racun(
   sifra int not null primary key auto_increment,
   datumpocetka datetime not null,
   brojracuna varchar(100) not null,
-  korisnik int,
-  djelatnik int
+  korisnik int not null,
+  djelatnik int not null
 );
 
 create table proizvod(
@@ -48,3 +48,43 @@ alter table racun add foreign key(korisnik) references korisnik(sifra);
 alter table racun add foreign key(djelatnik) references djelatnik(sifra);
 alter table stavka add foreign key(proizvod) references proizvod(sifra);
 alter table stavka add foreign key(racun) references racun(sifra);
+
+select * from pcshop;
+insert into pcshop(naziv)
+values  ('Mikronis');
+
+select * from djelatnik;
+insert into djelatnik(ime,prezime,pcshop)
+values  ('Marko','Markovic',1),
+        ('Pero','Peric',1),
+        ('Ivo','Ivic',1);
+        
+select * from korisnik;
+insert into korisnik(ime,prezime)
+values  ('Maja','Majic'),
+        ('Iva','Ivic'),
+        ('Petra','Petrovic');
+        
+select * from racun;
+insert into racun(datumpocetka,brojracuna,korisnik,djelatnik)
+values  ('2012-06-21',123,1,3),
+        ('2013-01-30',231,2,2),
+        ('2014-02-27',321,3,1);
+        
+select * from proizvod;
+insert into proizvod(naziv,cijena,garancija)
+values  ('Razer tipkovnica',1099.99,'2025-03-03'),
+        ('Razer mis',599.99,'2027-12-05'),
+        ('Logitech tipkovnica',899.99,'2028-02-09'),
+        ('Logitech mis',499.99,'2026-10-06'),
+        ('Corsair mis',449.99,'2026-11-07'),
+        ('Corsair tipkovnica',1199.99,'2026-12-23');
+        
+select * from stavka;
+insert into stavka(proizvod,racun)
+values  (1,1),
+        (2,1),
+        (3,2),
+        (4,2),
+        (5,3),
+        (6,3);
