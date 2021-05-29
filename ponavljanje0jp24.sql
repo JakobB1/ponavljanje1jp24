@@ -1,4 +1,6 @@
-create database ponavljanje;
+drop database if exists ponavljanje0jp24;
+create database ponavljanje0jp24;
+use ponavljanje0jp24;
 
 create table klub (
    sifra int not null primary key auto_increment, 
@@ -90,5 +92,3 @@ select c.naziv
 from sudac a inner join sudjeluje b on a.id = b.sudac
 inner join dogadjaj c on b.dogadjaj = c.id 
 where a.ime='Josip' and a.prezime='Perić';
-
-select * from sudjeluje;

@@ -1,5 +1,6 @@
 drop database if exists ponavljanjejp24;
 create database ponavljanjejp24;
+use ponavljanjejp24;
 
 create table gitara(
 sifra int not null primary key auto_increment,
@@ -16,16 +17,20 @@ tip varchar(50)
 
 alter table gitara add foreign key (vrsta) references vrsta(sifra);
 
+
+
+
+select * from vrsta;
+insert into vrsta (tip)
+values ('Akustična'),('Električna');
+
+
 select * from gitara;
 insert into gitara (vrsta,cijena,proizvodac,naziv)
 values (2,10000,'Gibson','Les Paul'),
 (1,800.00,'Fender','JT220'),
 (2,1800,'Jay Turser','KH503');
 
-
-select * from vrsta;
-insert into vrsta (tip)
-values ('Akustična'),('Električna');
 
 select naziv,vrsta,proizvodac,cijena from gitara;
 
