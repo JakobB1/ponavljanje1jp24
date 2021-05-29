@@ -73,12 +73,25 @@ values  ('2012-06-21',123,1,3),
         
 select * from proizvod;
 insert into proizvod(naziv,cijena,garancija)
-values  ('Razer tipkovnica',1099.99,'2025-03-03'),
-        ('Razer mis',599.99,'2027-12-05'),
-        ('Logitech tipkovnica',899.99,'2028-02-09'),
-        ('Logitech mis',499.99,'2026-10-06'),
-        ('Corsair mis',449.99,'2026-11-07'),
-        ('Corsair tipkovnica',1199.99,'2026-12-23');
+values  ('Razer podloga',299.99,'2023-03-03'),
+        ('Razer tipkovnica',899.99,'2023-03-03'),
+        ('Razer mis',599.99,'2024-03-03'),
+        ('Razer slusalice',1099.99,'2024-03-03'),
+        ('Corsair podloga',1099.99,'2025-03-03'),
+        ('Corsair tipkovnica',1299.99,'2025-03-03'),
+        ('Corsair mis',999.99,'2023-03-03'),
+        ('Corsair slusalice',1099.99,'2024-03-08'),
+        ('Logitech podloga',299.99,'2024-03-13'),
+        ('Logitech mis',599.99,'2025-03-03'),
+        ('Logitech tipkovnica',1199.99,'2025-03-23'),
+        ('Logitech slusalice',699.99,'2026-03-03'),
+        ('Amd procesor',1599.99,'2026-03-03'),
+        ('Intel procesor',1399.99,'2025-03-03'),
+        ('Nvidia graficka',2599.99,'2026-12-23'),
+        ('Amd graficka',1799.99,'2025-03-03');
+        
+        
+        
         
 select * from stavka;
 insert into stavka(proizvod,racun)
@@ -102,7 +115,7 @@ select naziv from proizvod where naziv like '%corsair%';
 select naziv from proizvod where sifra=1;
 select naziv from proizvod where sifra=2;
 
-select b.ime
+select b.ime, d.ime, f.naziv, f.cijena
 from pcshop a 
 inner join djelatnik b on  a.sifra    = b.pcshop
 inner join racun     c on  b.sifra    = c.djelatnik
