@@ -97,13 +97,22 @@ values  ('Razer podloga',299.99,'2023-03-03'),
 select * from stavka;
 insert into stavka(proizvod,racun,kolicina)
 values  (1,1,1),
-        (2,1,1),
+        (2,1,2),
         (3,1,1),
-        (4,2,1),
+        (4,1,2),
         (5,2,1),
-        (6,3,1),
-        (7,3,1),
-        (8,3,1);
+        (6,2,2),
+        (7,2,1),
+        (8,2,2),
+        (9,3,1),
+        (10,3,2),
+        (11,3,1),
+        (12,3,3),
+        (13,1,1),
+        (14,2,3),
+        (15,3,1),
+        (16,1,1);
+        
              
 update proizvod set naziv = 'Razer slusalice' where sifra=1;
 update proizvod set naziv = 'Razer stolica' where sifra=2;
@@ -127,4 +136,9 @@ inner join korisnik  d on  c.korisnik = d.sifra
 inner join stavka    e on  c.sifra    = e.racun 
 inner join proizvod  f on  e.proizvod = f.sifra
 where e.proizvod is not null 
-order by c.brojracuna and f.cijena desc;
+order by e.proizvod asc;
+
+select * from proizvod;
+delete from proizvod where cijena = 300;
+delete from proizvod where cijena = 1;
+
