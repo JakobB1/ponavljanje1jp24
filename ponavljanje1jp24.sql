@@ -191,3 +191,17 @@ from proizvod
 where sifra>1
 order by naziv asc
 limit 14;
+
+# distinct oznaka
+select distinct naziv from proizvod;
+select distinct cijena from proizvod;
+select distinct garancija from proizvod;
+
+select distinct datumpocetka from racun;
+select distinct brojracuna from racun;
+select distinct korisnik from racun;
+select distinct djelatnik from racun;
+
+select distinct ime from djelatnik;
+select distinct prezime from djelatnik;
+select distinct pcshop from djelatnik;
