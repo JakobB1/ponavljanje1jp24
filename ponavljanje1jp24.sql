@@ -41,8 +41,7 @@ create table stavka(
 create table korisnik(
   sifra int not null primary key auto_increment,
   ime varchar(30) not null,
-  prezime varchar(30) not null,
-  racun int 
+  prezime varchar(30) not null
 );
 
 alter table djelatnik add foreign key(pcshop) references pcshop(sifra);
@@ -62,10 +61,10 @@ values  ('Marko','Markovic',1),
         ('Ivo','Ivic',1);
         
 select * from korisnik;
-insert into korisnik(ime,prezime,racun)
-values  ('Maja','Majic',1),
-        ('Iva','Ivic',2),
-        ('Petra','Petrovic',3);
+insert into korisnik(ime,prezime)
+values  ('Maja','Majic'),
+        ('Iva','Ivic'),
+        ('Petra','Petrovic');
         
 select * from racun;
 insert into racun(datumpocetka,brojracuna,korisnik,djelatnik)
@@ -128,4 +127,4 @@ inner join korisnik  d on  c.korisnik = d.sifra
 inner join stavka    e on  c.sifra    = e.racun 
 inner join proizvod  f on  e.proizvod = f.sifra
 where e.proizvod is not null 
-order by f.cijena desc;
+order by c.brojracuna and f.cijena desc;
