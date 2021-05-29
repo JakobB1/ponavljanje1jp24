@@ -140,5 +140,3 @@ order by e.proizvod asc;
 
 select * from proizvod;
 delete from proizvod where cijena = 300;
-delete from proizvod where cijena = 1;
-
