@@ -44,11 +44,13 @@ create table korisnik(
   prezime varchar(30) not null
 );
 
+
 alter table djelatnik add foreign key(pcshop) references pcshop(sifra);
 alter table racun add foreign key(korisnik) references korisnik(sifra);
 alter table racun add foreign key(djelatnik) references djelatnik(sifra);
 alter table stavka add foreign key(proizvod) references proizvod(sifra);
 alter table stavka add foreign key(racun) references racun(sifra);
+
 
 select * from pcshop;
 insert into pcshop(naziv)
@@ -141,7 +143,6 @@ order by e.proizvod asc;
 select * from proizvod;
 delete from proizvod where cijena = 300;
 
-# Ponavljanje (ostaleSQLnaredbe)
 select * from proizvod where sifra > 1;
 select * from proizvod where sifra < 10;
 select * from proizvod where sifra = 10;
@@ -170,4 +171,23 @@ select * from proizvod where naziv like '%amd%';
 select * from proizvod where naziv like 'c%';
 
 
+# Ponavljanje (ostaleSQLnaredbe)
 
+# order by i limit klauzule
+select naziv
+from proizvod 
+where sifra>1
+order by naziv desc
+limit 4;
+
+select naziv
+from proizvod 
+where sifra<7
+order by naziv desc
+limit 5;
+
+select naziv
+from proizvod 
+where sifra>1
+order by naziv asc
+limit 14;
