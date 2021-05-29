@@ -41,7 +41,8 @@ create table stavka(
 create table korisnik(
   sifra int not null primary key auto_increment,
   ime varchar(30) not null,
-  prezime varchar(30) not null
+  prezime varchar(30) not null,
+  racun int 
 );
 
 alter table djelatnik add foreign key(pcshop) references pcshop(sifra);
@@ -61,10 +62,10 @@ values  ('Marko','Markovic',1),
         ('Ivo','Ivic',1);
         
 select * from korisnik;
-insert into korisnik(ime,prezime)
-values  ('Maja','Majic'),
-        ('Iva','Ivic'),
-        ('Petra','Petrovic');
+insert into korisnik(ime,prezime,racun)
+values  ('Maja','Majic',1),
+        ('Iva','Ivic',2),
+        ('Petra','Petrovic',3);
         
 select * from racun;
 insert into racun(datumpocetka,brojracuna,korisnik,djelatnik)
@@ -97,8 +98,13 @@ values  ('Razer podloga',299.99,'2023-03-03'),
 select * from stavka;
 insert into stavka(proizvod,racun,kolicina)
 values  (1,1,1),
-        (7,1,1),
-        (15,1,1);
+        (2,1,1),
+        (3,1,1),
+        (4,2,1),
+        (5,2,1),
+        (6,3,1),
+        (7,3,1),
+        (8,3,1);
              
 update proizvod set naziv = 'Razer slusalice' where sifra=1;
 update proizvod set naziv = 'Razer stolica' where sifra=2;
@@ -114,11 +120,12 @@ select naziv from proizvod where naziv like '%corsair%';
 select naziv from proizvod where sifra is not null;
 select naziv from proizvod where sifra=2;
 
-select f.naziv , f.cijena , f.garancija , c.brojracuna, d.ime 
+select f.naziv , f.cijena , f.garancija , c.brojracuna, d.ime , e.proizvod 
 from pcshop a 
 inner join djelatnik b on  a.sifra    = b.pcshop
 inner join racun     c on  b.sifra    = c.djelatnik
 inner join korisnik  d on  c.korisnik = d.sifra 
-inner join stavka    e on  c.sifra    = e.sifra
+inner join stavka    e on  c.sifra    = e.racun 
 inner join proizvod  f on  e.proizvod = f.sifra
+where e.proizvod is not null 
 order by f.cijena desc;
