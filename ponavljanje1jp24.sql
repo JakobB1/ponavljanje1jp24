@@ -95,3 +95,17 @@ update proizvod set naziv = 'Logitech podloga' where sifra=3;
 update proizvod set naziv = 'Logitech zvucnici' where sifra=4;
 update proizvod set naziv = 'Corsair RAM 2x8 ddr4' where sifra=5;
 update proizvod set naziv = 'Corsair podloga' where sifra=6;
+
+select naziv from proizvod where naziv like '%razer%';
+select naziv from proizvod where naziv like '%corsair%';
+select naziv from proizvod where naziv like '%corsair%';
+select naziv from proizvod where sifra=1;
+select naziv from proizvod where sifra=2;
+
+select b.ime
+from pcshop a 
+inner join djelatnik b on  a.sifra    = b.pcshop
+inner join racun     c on  b.sifra    = c.djelatnik
+inner join korisnik  d on  c.korisnik = d.sifra 
+inner join stavka    e on  c.sifra    = e.sifra
+inner join proizvod  f on  e.proizvod = f.sifra
