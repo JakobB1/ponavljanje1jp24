@@ -93,18 +93,13 @@ values  ('Razer podloga',299.99,'2023-03-03'),
         ('NZXT kuciste',2199.99,'2030-03-03'),
         ('ASRock kuciste',399.99,'2025-09-21'),
         ('Corsair kuciste',1399.99,'2026-11-27');
-        
-        
-        
-        
-        
+              
 select * from stavka;
 insert into stavka(proizvod,racun,kolicina)
 values  (1,1,1),
         (7,1,1),
         (15,1,1);
-        
-               
+             
 update proizvod set naziv = 'Razer slusalice' where sifra=1;
 update proizvod set naziv = 'Razer stolica' where sifra=2;
 update proizvod set naziv = 'Logitech podloga' where sifra=3;
