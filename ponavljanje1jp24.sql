@@ -204,4 +204,4 @@ select distinct djelatnik from racun;
 
 select distinct ime from djelatnik;
 select distinct prezime from djelatnik;
-select distinct pcshop from djelatnik;
+select distinct pcshop from djelatnik;     
