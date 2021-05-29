@@ -140,3 +140,34 @@ order by e.proizvod asc;
 
 select * from proizvod;
 delete from proizvod where cijena = 300;
+
+# Ponavljanje (ostaleSQLnaredbe)
+select * from proizvod where sifra > 1;
+select * from proizvod where sifra < 10;
+select * from proizvod where sifra = 10;
+select * from proizvod where sifra != 1;
+select * from proizvod where sifra=3 or sifra=11;
+select * from proizvod where not sifra = 1;
+select * from proizvod where sifra=3 or sifra=5;
+select * from proizvod where sifra=1 or sifra=3 or sifra=11;
+select * from proizvod where sifra in (1,3,6,9,13,19);
+select * from proizvod where sifra>=2 and sifra<=15;
+select * from proizvod where sifra between 6 and 15;
+
+select * from korisnik where ime='Iva';
+select * from korisnik where ime like 'I%';
+select * from korisnik where ime like '%a';
+select * from korisnik where ime like '%Petra%';
+select * from korisnik where ime not like '%s';
+select * from korisnik where ime not like '%a';
+select * from korisnik where ime not like 'p%';
+
+select * from proizvod where naziv like '%corsair%';
+select * from proizvod where naziv not like '%corsair%';
+select * from proizvod where naziv like '%logitech%';
+select * from proizvod where naziv like '%corsair%';
+select * from proizvod where naziv like '%amd%';
+select * from proizvod where naziv like 'c%';
+
+
+
