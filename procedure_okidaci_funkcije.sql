@@ -1,0 +1,3 @@
+drop database if exists procedure_okidaci_funkcije;
+create database procedure_okidaci_funkcije;
+use procedure_okidaci_funkcije;
